@@ -92,11 +92,19 @@ const useStyles = makeStyles((theme) => ({
       opacity: 0.7
   },
   drawerItemEstimate: {
-      backgroundColor: theme.palette.common.orange
+      backgroundColor: theme.palette.common.orange,
+      "&:hover": {
+          backgroundColor: theme.palette.common.orange
+      }
   },
   drawerItemSelected: {
-      opacity: 1
+      "& .MuiListItemText-root": {
+          opacity: 1
+      }
   },
+  appbar: {
+      zIndex: theme.zIndex.modal + 1
+  }
 }));
 
 function ElevationScroll(props) {
@@ -206,11 +214,12 @@ export default function Header(props) {
         onClose={handleClose}
         MenuListProps={{ onMouseLeave: handleClose }}
         elevation={0}
+        style={{zIndex: 1302}}
         keepMounted
       >
         {menuOptions.map((option, i) => (
           <MenuItem
-            key={option}
+            key={`${option}${i}`}
             component={Link}
             to={option.link}
             classes={{ root: classes.menuItem }}
@@ -238,6 +247,7 @@ export default function Header(props) {
         onOpen={() => setOpenDrawer(true)}
         classes={{paper: classes.drawer}}
       >
+        <div className={classes.toolbarMargin} />
         <List disablePadding>
             {routes.map((route) => (
                 <ListItem 
@@ -246,10 +256,14 @@ export default function Header(props) {
                 button 
                 component={Link} 
                 to={route.link} 
-                selected={value === route.activeIndex} onClick={() => {setOpenDrawer(false); setValue(route.activeIndex)}}
+                selected={value === route.activeIndex} 
+                onClick={() => {
+                    setOpenDrawer(false); setValue(route.activeIndex)
+                }}
+                classes={{selected: classes.drawerItemSelected}}
                 >
                     <ListItemText 
-                    className={ value === route.activeIndex ? [classes.drawerItem, classes.drawerItemSelected] : classes.drawerItem } 
+                    className={classes.drawerItem} 
                     disableTypography
                     >
                         {route.name}
@@ -257,16 +271,18 @@ export default function Header(props) {
                 </ListItem>
             ))}
             <ListItem
-            className={classes.drawerItemEstimate}
-             onClick={() => {setOpenDrawer(false); setValue(5)}}
+            classes={{root: classes.drawerItemEstimate, selected: classes.drawerItemSelected}}
              component={Link} 
              to="/estimate" 
-             selected={value === 5} 
+             selected={value === 5}
+             onClick={() => {
+                 setOpenDrawer(false); setValue(5)
+             }} 
              divider
              button
              >
                 <ListItemText 
-                className={value === 5 ? [classes.drawerItem, classes.drawerItemSelected] : classes.drawerItem}
+                className={classes.drawerItem}
                 disableTypography>
                     Free Estimate
                 </ListItemText>
@@ -283,7 +299,7 @@ export default function Header(props) {
   return (
     <>
       <ElevationScroll>
-        <AppBar position="fixed">
+        <AppBar className={classes.appbar} position="fixed">
           <ToolBar disableGutters>
             <Button
               className={classes.logoContainer}
