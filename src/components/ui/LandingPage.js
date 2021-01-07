@@ -9,6 +9,7 @@ import useMediaQuery from "@material-ui/core/useMediaQuery";
 
 import animationData from "../../animations/landinganimation/data";
 import customSoftwareIcon from "../../assets/Custom Software Icon.svg";
+import mobileAppsIcon from "../../assets/mobileIcon.svg";
 
 const useStyles = makeStyles((theme) => ({
   animation: {
@@ -45,6 +46,7 @@ const useStyles = makeStyles((theme) => ({
     fontSize: "0.7rem",
     height: 35,
     padding: 5,
+    marginBottom: "2em"
   },
   mainContainer: {
     marginTop: "5em",
@@ -152,7 +154,7 @@ export default function LandingPage() {
         </Grid>
         <Grid item>
           {" "}
-          {/*-----Services Block-----*/}
+          {/*-----Custom Software Block-----*/}
           <Grid container direction="row" justify={matchesSM ? "center" : undefined} 
           className={classes.serviceContainer}>
               <Grid item style={{ marginLeft: matchesSM ? 0 : "5em", textAlign: matchesSM ? "center" : undefined }}>
@@ -167,7 +169,7 @@ export default function LandingPage() {
                    <span className={classes.specialText}>celebration.</span>
                 </Typography>
                 <Button variant="outlined" className={classes.learnButton}>
-                <span stye={{ marginRight: 10, marginTop: matchesSM ? "2em" : undefined }}>Learn More</span>
+                <span stye={{ marginRight: 10}}>Learn More</span>
                 <ButtonArrow 
                   width={10} 
                   height={10}
@@ -177,6 +179,37 @@ export default function LandingPage() {
               </Grid>
               <Grid item>
                 <img className={classes.icon} alt="custom software icon" src={customSoftwareIcon} />
+              </Grid>
+          </Grid>
+        </Grid>
+        <Grid item>
+          {" "}
+          {/*-----iOS/Android Block-----*/}
+          <Grid container direction="row" justify={matchesSM ? "center" : "flex-end"} 
+          className={classes.serviceContainer}>
+              <Grid item style={{ textAlign: matchesSM ? "center" : undefined }}>
+                <Typography variant="h4">
+                  iOS/Android App Development
+                </Typography>
+                <Typography variant="subtitle1" className={classes.subtitle}>
+                  Extend Funcionality. Extend Access. Increase Engagement.
+                </Typography>
+                <Typography variant="subtitle1">
+                  Integrate your web experience or create a standalone 
+                  app{matchesSM ? null : <br /> } with either mobile platform.
+                   <span className={classes.specialText}>celebration.</span>
+                </Typography>
+                <Button variant="outlined" className={classes.learnButton}>
+                <span stye={{ marginRight: 10}}>Learn More</span>
+                <ButtonArrow 
+                  width={10} 
+                  height={10}
+                  fill={theme.palette.common.blue}
+                />
+                </Button>
+              </Grid>
+              <Grid item  style={{ marginRight: matchesSM ? 0 : "5em" }}>
+                <img className={classes.icon} alt="mobile phone icon" src={mobileAppsIcon} />
               </Grid>
           </Grid>
         </Grid>
