@@ -60,6 +60,9 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: "50px",
     marginRight: "25px",
     height: "45px",
+    "&:hover": {
+      backgroundColor: theme.palette.secondary.dark
+    },
   },
   menu: {
     backgroundColor: theme.palette.common.blue,

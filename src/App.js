@@ -4,6 +4,7 @@ import { ThemeProvider } from "@material-ui/styles";
 import theme from "./components/ui/theme";
 import Header from "./components/ui/Header";
 import Footer from "./components/ui/Footer";
+import LandingPage from "./components/ui/LandingPage";
 
 function App() {
   const [selectedIndex, setSelectedIndex] = useState(0);
@@ -22,7 +23,7 @@ function App() {
           <Route
             exact
             path="/"
-            component={() => <div style={{ height: "2000px" }}>home</div>}
+            component={LandingPage}
           />
           <Route exact path="/services" component={() => <div>services</div>} />
           <Route
