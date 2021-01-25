@@ -14,6 +14,7 @@ import customSoftwareIcon from "../../assets/Custom Software Icon.svg";
 import mobileAppsIcon from "../../assets/mobileIcon.svg";
 import websitesIcon from "../../assets/websiteIcon.svg";
 import revolutionBackground from "../../assets/repeatingBackground.svg";
+import infoBackground from "../../assets/infoBackground.svg";
 
 const useStyles = makeStyles((theme) => ({
   animation: {
@@ -92,8 +93,8 @@ const useStyles = makeStyles((theme) => ({
     backgroundPosition: "center",
     backgroundSize: "cover",
     backgroundRepeat: "no-repeat",
-    height: "75%",
-    width: "100%"
+    height: "100%",
+    width: "100%",
   },
   revolutionCard: {
     position: "absolute",
@@ -106,9 +107,17 @@ const useStyles = makeStyles((theme) => ({
       paddingLeft: 0,
       paddingRight: 0,
       borderRadius: 0,
-      width: "100%"
-    }
-  }
+      width: "100%",
+    },
+  },
+  infoBackground: {
+    backgroundImage: `url(${infoBackground})`,
+    backgroundPosition: "center",
+    backgroundSize: "cover",
+    backgroundRepeat: "no-repeat",
+    height: "100%",
+    width: "100%",
+  },
 }));
 
 export default function LandingPage() {
@@ -160,7 +169,7 @@ export default function LandingPage() {
                     className={classes.learnButtonHero}
                     variant="outlined"
                   >
-                    <span stye={{ marginRight: 10 }}>Learn More</span>
+                    <span style={{ marginRight: 10 }}>Learn More</span>
                     <ButtonArrow
                       width={15}
                       height={15}
@@ -200,7 +209,7 @@ export default function LandingPage() {
                 <span className={classes.specialText}>celebration.</span>
               </Typography>
               <Button variant="outlined" className={classes.learnButton}>
-                <span stye={{ marginRight: 10 }}>Learn More</span>
+                <span style={{ marginRight: 10 }}>Learn More</span>
                 <ButtonArrow
                   width={10}
                   height={10}
@@ -237,7 +246,7 @@ export default function LandingPage() {
                 <span className={classes.specialText}>celebration.</span>
               </Typography>
               <Button variant="outlined" className={classes.learnButton}>
-                <span stye={{ marginRight: 10 }}>Learn More</span>
+                <span style={{ marginRight: 10 }}>Learn More</span>
                 <ButtonArrow
                   width={10}
                   height={10}
@@ -278,7 +287,7 @@ export default function LandingPage() {
                 Optimized for Search Engines, built for speed.
               </Typography>
               <Button variant="outlined" className={classes.learnButton}>
-                <span stye={{ marginRight: 10 }}>Learn More</span>
+                <span style={{ marginRight: 10 }}>Learn More</span>
                 <ButtonArrow
                   width={10}
                   height={10}
@@ -296,7 +305,14 @@ export default function LandingPage() {
           </Grid>
         </Grid>
         <Grid item>
-          <Grid container style={{height: "100em", marginTop: "12em"}} alignItems="center" justify="center">
+          {" "}
+          {/*-----The Revolution Block-----*/}
+          <Grid
+            container
+            style={{ height: "100em", marginTop: "12em" }}
+            alignItems="center"
+            justify="center"
+          >
             <Card className={classes.revolutionCard}>
               <CardContent>
                 <Grid
@@ -304,8 +320,10 @@ export default function LandingPage() {
                   direction="column"
                   style={{ textAlign: "center" }}
                 >
-                  <Grid item >
-                    <Typography variant="h3" gutterBottom>The Revolution</Typography>
+                  <Grid item>
+                    <Typography variant="h3" gutterBottom>
+                      The Revolution
+                    </Typography>
                     <Grid item>
                       <Typography variant="subtitle1">
                         Visionary insights coupled with cutting-edge technology
@@ -315,7 +333,7 @@ export default function LandingPage() {
                         variant="outlined"
                         className={classes.learnButton}
                       >
-                        <span stye={{ marginRight: 10 }}>Learn More</span>
+                        <span style={{ marginRight: 10 }}>Learn More</span>
                         <ButtonArrow
                           width={10}
                           height={10}
@@ -328,6 +346,71 @@ export default function LandingPage() {
               </CardContent>
             </Card>
             <div className={classes.revolutionBackground} />
+          </Grid>
+        </Grid>
+        <Grid item>
+          {" "}
+          {/*-----Information Block-----*/}
+          <Grid
+            container
+            style={{ height: "80em" }}
+            alignItems="center"
+            direction="row"
+          >
+            <Grid 
+              item 
+              container
+              style={{ position: "absolute" }}>
+              <Grid 
+                item
+                sm
+                style={{ marginLeft: "5em" }}
+              >
+                <Grid container direction="column">
+                  <Typography variant="h2" style={{ color: "white" }}>
+                    About us
+                  </Typography>
+                  <Typography variant="subtitle2">
+                    Let's get personal
+                  </Typography>
+                  <Grid item>
+                    <Button
+                      variant="outlined"
+                      style={{ color: "white", borderColor: "white" }}
+                      className={classes.learnButton}
+                    >
+                      <span style={{ marginRight: 10 }}>Learn More</span>
+                      <ButtonArrow width={10} height={10} fill="white" />
+                    </Button>
+                  </Grid>
+                </Grid>
+              </Grid>
+              <Grid 
+                item
+                sm 
+                style={{ marginRight: "5em", textAlign: "right" }}
+              >
+                <Grid container direction="column">
+                  <Typography variant="h2" style={{ color: "white" }}>
+                    Contact us
+                  </Typography>
+                  <Typography variant="subtitle2">
+                    Let's get personal
+                  </Typography>
+                  <Grid item>
+                    <Button
+                      variant="outlined"
+                      style={{ color: "white", borderColor: "white" }}
+                      className={classes.learnButton}
+                    >
+                      <span style={{ marginRight: 10 }}>Say hello! </span>
+                      <ButtonArrow width={10} height={10} fill="white" />
+                    </Button>
+                  </Grid>
+                </Grid>
+              </Grid>
+            </Grid>
+            <div className={classes.infoBackground} />
           </Grid>
         </Grid>
       </Grid>
